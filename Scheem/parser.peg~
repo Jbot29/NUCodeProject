@@ -1,7 +1,10 @@
+start = expression
+
+quote = 
+ "'" a:expression {return  ['quote'].concat([a]);}
 
 
-start = 
-   expression
+
 
 validchar
     = [0-9a-zA-Z_?!+\-=@#$%^&*/.]
@@ -36,5 +39,7 @@ s =
 expression = 
   atom
 / s
+/ quote
+
 
 

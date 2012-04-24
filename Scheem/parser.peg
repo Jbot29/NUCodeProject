@@ -3,7 +3,8 @@ start = expression
 quote = 
  "'" a:expression {return  ['quote'].concat([a]);}
 
-
+comment =
+  ';;' .* {return [];}
 
 
 validchar
@@ -40,6 +41,7 @@ expression =
   atom
 / s
 / quote
+/ comment
 
 
 
