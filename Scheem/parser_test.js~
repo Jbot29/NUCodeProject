@@ -1,0 +1,5 @@
+var fs = require('fs');
+
+parser = fs.readFileSync('parser.peg', encoding="ascii");
+
+console.log(parser);

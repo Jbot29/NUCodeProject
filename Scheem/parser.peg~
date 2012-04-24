@@ -1,0 +1,31 @@
+start =
+   expression
+
+validchar
+    = [0-9a-zA-Z_?!+\-=@#$%^&*/.]
+
+atom =
+    chars:validchar+
+        { return chars.join(""); }
+
+
+space =
+ " "*
+
+sea =
+   atom
+/  s
+
+seaspace =
+   a:sea space {return a;}
+
+sel =
+   seaspace+
+
+s =
+  "(" a:sel ")" {return a;}
+
+expression =
+  atom
+/ s
+
