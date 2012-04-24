@@ -1,4 +1,6 @@
-start =
+
+
+start = 
    expression
 
 validchar
@@ -9,23 +11,30 @@ atom =
         { return chars.join(""); }
 
 
-space =
+space = 
  " "*
 
-sea =
+newline = 
+ "\n"*
+
+spacenewline = 
+  (" " / "\n")*
+
+sea = 
    atom
 /  s
 
 seaspace =
-   a:sea space {return a;}
+   spacenewline a:sea spacenewline {return a;}
 
-sel =
+sel = 
    seaspace+
 
-s =
+s = 
   "(" a:sel ")" {return a;}
 
-expression =
+expression = 
   atom
 / s
+
 

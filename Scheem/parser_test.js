@@ -10,3 +10,4 @@ console.log(parser_text);
 var parse = PEG.buildParser(parser_text).parse;
 
 assert.deepEqual( parse("(a b c)"), ["a", "b", "c"] );
+assert.deepEqual( parse("( a b c )"),["a","b","c"]);
